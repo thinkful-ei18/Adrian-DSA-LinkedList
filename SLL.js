@@ -11,7 +11,7 @@ const main = (function () {
   list.insert('Helo');
   list.insert('Husker');
   list.insert('Starbuck');
-  console.log('before insert:', JSON.stringify(list));
-  console.log('insertBefore:', list.insertBefore('ppp', 'Pizzaman'));
-  console.log('after insert:', JSON.stringify(list));
+  list.prettyPrint();
+  // list.insertBefore('Apollo', 'Pizzaman');
+  // list.prettyPrint();
 })();
