@@ -7,32 +7,6 @@ class LinkedList {
     this.head = null; // head = first node
   }
 
-  insertBefore(key, value) {
-    // assign variable to prev node
-    // assign variable for current node
-    // iterate thru the list until currentNode is assigned to Key - while loop
-    // save the value of the previousNode
-    // create a newNode with the value of item arg
-    //assign previousNode.next to newNode
-    //assign newNode.next to currentNode
-
-
-    if (this.head === null) {
-      throw new Error('The list is empty');
-    }
-
-    let prevNode = this.head;
-    let currNode = this.head;
-
-    while(currNode.value !== key) {
-      prevNode = currNode;
-      currNode = currNode.next;
-    }
-    prevNode.next = new _Node(value, prevNode.next);
-  }
-
-
-
   insert(item) {
     if (this.head === null) {
       this.head = new _Node(item, this.head); // _Node (data, null)
@@ -44,6 +18,49 @@ class LinkedList {
       }
       tempNode.next = new _Node(item, null); // instead of the last item on the list pointing to NULL, it points to the new item & the new tempNode points to NULL
     }
+  }
+
+  insertFirst(item){
+    this.head = new _Node(item, this.head);
+  }
+
+  insertLast(item){
+    if(this.head === null){
+      this.insertFirst(item);
+    }
+    else{
+      let tempNode = this.head;
+      while(tempNode.next !== null){
+        tempNode = tempNode.next;
+      }
+      tempNode.next = new _Node(item, null);
+    }
+  }
+
+  insertBefore(oldItem, newItem) {
+
+    if (this.head === null) {
+      throw new Error('The list is empty');
+    }
+
+    if (this.head.value === oldItem) {
+      this.insertFirst(newItem);
+      return;
+    }
+
+    let prevNode = this.head;
+    let currNode = this.head;
+
+    while(currNode) {
+      prevNode = currNode;
+      currNode = currNode.next;
+
+      if (currNode.value === oldItem) {
+        prevNode.next = new _Node(newItem, prevNode.next);
+        return;
+      }
+    }
+    throw new Error(`Item ${oldItem} does not exist`);
   }
 
   find(item) {
@@ -90,17 +107,14 @@ class LinkedList {
     previousNode.next = currNode.next; // otherwise, overwrite the previous node to exclude it from the list
   }
 
-  print () {
-    if (this.head === null) {
-      throw new Error('The list is empty');
+  prettyPrint() {
+    let current = this.head;
+    let pretty = '';
+    while (current) {
+      pretty += `=> ${current.value} `;
+      current = current.next;
     }
-
-    let currNode = this.head;
-    while(this.head.next !== null) {
-      currNode = currNode.next;
-    }
-    console.log(currNode);
-
+    console.log(pretty);
   }
 }
 
