@@ -7,14 +7,21 @@ class LinkedList {
     this.head = null; // head = first node
   }
 
-  insertFirst(item) {
-    this.head = new _Node(item, this.head); // _Node (data, null)
-    // Create a new Node object, insert value & this.head is null since its the first node in the list
+  insertBefore(item, key) {
+    if (this.head === null) {
+      throw new Error('The list is empty');
+    }
+
+    let prevNode = this.find(item); // Find the item we want to insert before; results in next prop
+    let currNode;
+
+
   }
 
-  insertLast(item) {
+  insert(item) {
     if (this.head === null) {
-      this.insertFirst(item); // if the list is empty, use insertFirst instead
+      this.head = new _Node(item, this.head); // _Node (data, null)
+    // Create a new Node object, insert value & this.head is null since its the first node in the list
     } else {
       let tempNode = this.head; // assign TempNode to first node in list
       while(tempNode.next !== null) { // iterate thru each node til we reach the end of list
