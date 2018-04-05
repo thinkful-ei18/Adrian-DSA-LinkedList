@@ -1,16 +1,16 @@
 'use strict';
 
-const LinkedList = require('./single-linked-list');
+const LinkedList = require('./linked-list');
 
+const main = (function () {
 
-function main () {
-  let SLL = new LinkedList();
-  SLL.insertFirst('Apollo');
-  SLL.insertLast('Boomer');
-  SLL.insertLast('Helo');
-  SLL.insertLast('Husker');
-  SLL.insertLast('Starbuck');
-  console.log(SLL);
-}
+  let list = new LinkedList();
+  list.insertFirst('Apollo');
+  console.log(list);
+  list.insertLast('Boomer');
+  list.insertLast('Helo');
+  list.insertLast('Husker');
+  list.insertLast('Starbuck');
+  console.log(list);
 
-main();
+})();
