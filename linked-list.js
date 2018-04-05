@@ -7,16 +7,31 @@ class LinkedList {
     this.head = null; // head = first node
   }
 
-  insertBefore(item, key) {
+  insertBefore(key, value) {
+    // assign variable to prev node
+    // assign variable for current node
+    // iterate thru the list until currentNode is assigned to Key - while loop
+    // save the value of the previousNode
+    // create a newNode with the value of item arg
+    //assign previousNode.next to newNode
+    //assign newNode.next to currentNode
+
+
     if (this.head === null) {
       throw new Error('The list is empty');
     }
 
-    let prevNode = this.find(item); // Find the item we want to insert before; results in next prop
-    let currNode;
+    let prevNode = this.head;
+    let currNode = this.head;
 
-
+    while(currNode.value !== key) {
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+    prevNode.next = new _Node(value, prevNode.next);
   }
+
+
 
   insert(item) {
     if (this.head === null) {
@@ -76,9 +91,17 @@ class LinkedList {
   }
 
   print () {
-    console.log('list!');
-  }
+    if (this.head === null) {
+      throw new Error('The list is empty');
+    }
 
+    let currNode = this.head;
+    while(this.head.next !== null) {
+      currNode = currNode.next;
+    }
+    console.log(currNode);
+
+  }
 }
 
 module.exports = LinkedList;
