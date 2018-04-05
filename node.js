@@ -6,3 +6,5 @@ class _Node {
     this.next=next; //  memory address of the next node or NULL
   }
 }
+
+module.exports = _Node;
