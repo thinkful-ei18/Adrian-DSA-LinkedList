@@ -5,12 +5,12 @@ const LinkedList = require('./linked-list');
 const main = (function () {
 
   let list = new LinkedList();
-  list.insertFirst('Apollo');
-  console.log(list);
-  list.insertLast('Boomer');
-  list.insertLast('Helo');
-  list.insertLast('Husker');
-  list.insertLast('Starbuck');
-  console.log(list);
+  list.insert('Apollo');
+  console.log(JSON.stringify(list));
+  list.insert('Boomer');
+  list.insert('Helo');
+  list.insert('Husker');
+  list.insert('Starbuck');
+  console.log(JSON.stringify(list));
 
 })();
