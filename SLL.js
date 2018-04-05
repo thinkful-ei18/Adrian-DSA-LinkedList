@@ -12,5 +12,6 @@ const main = (function () {
   list.insert('Husker');
   list.insert('Starbuck');
   console.log(JSON.stringify(list));
+  console.log('insertBefore:', list.insertBefore('Apollo'));
 
 })();
